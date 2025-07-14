@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+    #love{
+        font-size: 40px;
+         display: flex;
+         justify-content: center;
+         padding-top: 90px;
+        }
+    #birds{
+        display: flex;
+        justify-content: space-between;
+        padding-left: 40%;
+        padding-right: 40%;
+        padding-top: 10%;
+
+    }
+    #buttonn1{
+        font-size: larger;
+    }
+    #buttonn2{
+        font-size: larger;
+        position: absolute;
+        margin-left: 200px;
+    }
+    </style>
+</head>
+<body>
+    <div id="love">Do you love me ?</div>
+    <div id="birds">
+    <button id="buttonn1">yes</button>
+    <button id="buttonn2">no</button>
+</div>
+
+<script>
+
+    function loveyou() {
+        let you1 = document.getElementById('love');
+        you1.textContent="i love you tooooooooooooooooooooooooooo"
+        you1.style.cssText = "background-color: red ";
+    }
+
+    let bird1= document.getElementById('buttonn1');
+    bird1.addEventListener("click",loveyou);
+
+    const yesBtn = document.getElementById('buttonn1');
+    const noBtn = document.getElementById('buttonn2');
+    document.addEventListener('mousemove', function(e) {
+  const rect = noBtn.getBoundingClientRect();
+  const btnX = rect.left + rect.width / 2;
+  const btnY = rect.top + rect.height / 2;
+
+  const mouseX = e.clientX;
+  const mouseY = e.clientY;
+
+  const distance = Math.hypot(mouseX - btnX, mouseY - btnY);
+
+  if (distance < 50) {
+    const newX = Math.random() * (window.innerWidth - rect.width);
+    const newY = Math.random() * (window.innerHeight - rect.height);
+
+    noBtn.style.left = `${newX}px`;
+    noBtn.style.top = `${newY}px`;
+  }
+});
+</script>
+    
+</body>
+</html>
